@@ -7,11 +7,12 @@
  * @license      MIT
  */
 
-namespace chillerlan\InstagramExamples;
+namespace chillerlan\OAuthExamples\Instagram;
 
-/** @var \chillerlan\Instagram\Instagram $instagram */
+/** @var \chillerlan\OAuth\Providers\Instagram\Instagram $instagram */
 $instagram   = null;
 $servicename = null;
+$tokenfile   = null;
 
 require_once __DIR__.'/instagram-common.php';
 
@@ -26,12 +27,12 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 	$user = $token->extraParams['user'];
 
 	// save the token & redirect
-	file_put_contents(__DIR__.'/../config/'.$servicename.'.token.json', $token->__toJSON());
+	file_put_contents($tokenfile, $token->__toJSON());
 	header('Location: ?granted='.$servicename);
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $servicename){
-	echo '<pre>'.print_r($instagram->profile('self'),true).'</pre>';
+	echo '<pre>'.print_r($instagram->profile('self'), true).'</pre>';
 }
 // step 1 (optional): display a login link
 else{

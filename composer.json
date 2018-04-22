@@ -32,14 +32,14 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"chillerlan\\Instagram\\": "src/"
+			"chillerlan\\OAuth\\Providers\\Instagram\\": "src/"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"chillerlan\\InstagramTest\\": "tests/",
-			"chillerlan\\InstagramExamples\\": "examples/",
-			"chillerlan\\OAuthTest\\": "vendor/chillerlan/php-oauth-core/tests"
+			"chillerlan\\OAuthTest\\": "vendor/chillerlan/php-oauth-core/tests",
+			"chillerlan\\OAuthTest\\Providers\\Instagram\\": "tests/",
+			"chillerlan\\OAuthExamples\\Instagram\\": "examples/"
 		}
 	}
 }

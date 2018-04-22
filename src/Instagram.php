@@ -7,18 +7,18 @@
  *
  * @filesource   Instagram.php
  * @created      10.04.2018
- * @package      chillerlan\Instagram
+ * @package      chillerlan\OAuth\Providers\Instagram
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT
  */
 
-namespace chillerlan\Instagram;
+namespace chillerlan\OAuth\Providers\Instagram;
 
 use chillerlan\MagicAPI\{
 	ApiClientInterface, ApiClientTrait
 };
-use chillerlan\OAuth\Providers\{
+use chillerlan\OAuth\Core\{
 	CSRFToken, CSRFTokenTrait, OAuth2Provider
 };
 

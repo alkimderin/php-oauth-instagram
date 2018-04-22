@@ -7,10 +7,13 @@
  * @license      MIT
  */
 
-namespace chillerlan\InstagramExamples;
+namespace chillerlan\OAuthExamples\Instagram;
 
-use chillerlan\OAuth\Token;
-use chillerlan\Instagram\Instagram;
+use chillerlan\MagicAPI\EndpointDocblockTrait;
+use chillerlan\OAuth\Core\AccessToken;
+use chillerlan\OAuth\Providers\Instagram\{
+	Instagram, InstagramEndpoints
+};
 
 require_once __DIR__.'/../vendor/autoload.php';
 
@@ -29,7 +32,7 @@ $http = null;
 /** @var \chillerlan\Database\Database $db */
 $db = null;
 
-/** @var \chillerlan\OAuth\Storage\TokenStorageInterface $storage */
+/** @var \chillerlan\OAuth\Storage\OAuthStorageInterface $storage */
 $storage = null;
 
 require_once __DIR__.'/../vendor/chillerlan/php-oauth-core/examples/oauth-example-common.php';
@@ -45,10 +48,13 @@ $scopes = [
 
 $instagram = new Instagram($http, $storage, $options, null, $scopes);
 $servicename = $instagram->serviceName;
-#$instagram->setLogger($logger);
+$tokenfile   = $CFGDIR.'/'.$servicename.'.token.json'; // don't do this in production :P
+
+$instagram->setLogger($logger);
+
+$endpointmap = new class extends InstagramEndpoints{
+	use EndpointDocblockTrait;
+};
 
 // import a token to the storage if needed
-$storage->storeAccessToken(
-	$servicename,
-	(new Token)->__fromJSON(file_get_contents($CFGDIR.'/'.$servicename.'.token.json'))
-);
+$storage->storeAccessToken($servicename, (new AccessToken)->__fromJSON(file_get_contents($tokenfile)));

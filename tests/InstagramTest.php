@@ -4,19 +4,19 @@
  *
  * @filesource   InstagramTest.php
  * @created      01.01.2018
- * @package      chillerlan\InstagramTest
+ * @package      chillerlan\OAuthTest\Providers\Instagram
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT
  */
 
-namespace chillerlan\InstagramTest;
+namespace chillerlan\OAuthTest\Providers\Instagram;
 
-use chillerlan\Instagram\Instagram;
-use chillerlan\OAuthTest\Providers\OAuth2Test;
+use chillerlan\OAuth\Providers\Instagram\Instagram;
+use chillerlan\OAuthTest\Core\OAuth2Test;
 
 /**
- * @property \chillerlan\Instagram\Instagram $provider
+ * @property \chillerlan\OAuth\Providers\Instagram\Instagram $provider
  */
 class InstagramTest extends OAuth2Test{
 

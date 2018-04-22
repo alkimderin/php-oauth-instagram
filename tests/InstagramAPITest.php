@@ -4,19 +4,19 @@
  *
  * @filesource   InstagramTest.php
  * @created      10.07.2017
- * @package      chillerlan\InstagramTest
+ * @package      chillerlan\OAuthTest\Providers\Instagram
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
  */
 
-namespace chillerlan\InstagramTest;
+namespace chillerlan\OAuthTest\Providers\Instagram;
 
-use chillerlan\Instagram\Instagram;
-use chillerlan\OAuthTest\API\OAuth2APITestAbstract;
+use chillerlan\OAuth\Providers\Instagram\Instagram;
+use chillerlan\OAuthTest\Core\OAuth2APITestAbstract;
 
 /**
- * @property  \chillerlan\Instagram\Instagram $provider
+ * @property  \chillerlan\OAuth\Providers\Instagram\Instagram $provider
  */
 class InstagramAPITest extends OAuth2APITestAbstract{
 
@@ -28,8 +28,6 @@ class InstagramAPITest extends OAuth2APITestAbstract{
 	protected $test_id;
 
 	protected function setUp(){
-		$this->markTestSkipped('not on CI');
-
 		parent::setUp();
 
 		$tokenParams = $this->storage->getAccessToken($this->provider->serviceName)->extraParams;
