@@ -4,7 +4,7 @@
 	"homepage": "https://github.com/chillerlan/php-oauth-instagram",
 	"license": "MIT",
 	"type": "library",
-	"minimum-stability": "dev",
+	"minimum-stability": "stable",
 	"keywords": [
 		"oauth", "oauth2", "api", "client", "instagram"
 	],
@@ -21,14 +21,13 @@
 	},
 	"require": {
 		"php": "^7.2",
-		"chillerlan/php-oauth-core": "dev-master"
+		"chillerlan/php-oauth-core": "^1.1"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "^7.1",
-		"chillerlan/php-database": "^2.0",
-		"chillerlan/php-cache": "^1.0",
-		"chillerlan/php-curl": "^1.0",
-		"chillerlan/php-log": "^1.0"
+		"phpunit/phpunit": "^7.3",
+		"chillerlan/php-database": "^2.1",
+		"chillerlan/php-cache": "^2.0",
+		"chillerlan/php-log": "^2.0"
 	},
 	"autoload": {
 		"psr-4": {
